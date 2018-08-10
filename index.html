@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Automatic Milk Reporter</title>
+	<link href="css/main.css" rel="stylesheet" type="text/css" />﻿
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+</head>
+<body>
+	<div class="article">
+		<div class="container">
+			<div class="navBar">
+				<div class="navElement">
+						<a class="active" href="https://milkautoreporter.herokuapp.com">Milk Mineral</a>
+						<a href="https://waterautoreporter.herokuapp.com">Water Mineral</a>
+						<a href="https://microwaterautoreporter.herokuapp.com">Water Micro</a>
+				</div>
+			</div>
+			<div class="userarea">
+				<h1>Automatic Milk Reporter</h1>
+				<h3>Please enter milk trace element levels (ppb)</h3>
+				<div class="section5">
+					<button class="copyButton" id="guide-button" onclick="toggleGuide();"/>Show Guide
+				</div>
+				<div class="guideBox" id="guideBox" style="display: none;">
+						<h3><u>Guide</u></h3>
+							<div class="guideText">
+								<ul>
+									<li>If Phosphorus wasn't tested leave input blank</li>
+									<li>If previous Iodine results for the farmer have been variable tick box below</li>
+									<li>Show element status reveals the levels of each element e.g. high</li>
+									<li>Use the clear button to clear all data and comments</li>
+									<li>Use the copy button to copy the comments (Google Chrome Only)</li>
+								</ul>
+							</div>
+				</div>
+				<form class="section1">
+					<div class="elementInput">
+						<h3>Phosphorus</h3> <input type="text" id="phosphorus" placeholder="e.g. 1150" onChange="LiveUpdate();" value=><p class="elementStatus" id="pStatus">---</p>
+					</div>
+					<div class="elementInput">
+						<h3>Manganese</h3> <input type="text" id="manganese" placeholder="e.g. 35" onChange="LiveUpdate();" value=> <p class="elementStatus" id="mnStatus">---</p>
+					</div>
+					<div class="elementInput">
+						<h3>Zinc</h3> <input type="text" id="zinc" placeholder="e.g. 3000" onChange="LiveUpdate();" value=> <p class="elementStatus" id="znStatus">---</p>
+					</div>
+					<div class="elementInput">
+						<h3>Copper</h3> <input type="text" id="copper" placeholder="e.g. 34" onChange="LiveUpdate();" value=> <p class="elementStatus" id="cuStatus">---</p>
+					</div>
+					<div class="elementInput">
+						<h3>Molybdenum</h3> <input type="text" id="molybdenum" placeholder="e.g. 42" onChange="LiveUpdate();" value=> <p class="elementStatus" id="moStatus">---</p>
+					</div>
+					<div class="elementInput">
+						<h3>Iodine</h3> <input type="text" id="iodine" placeholder="e.g. 500" onChange="LiveUpdate();" value=> <p class="elementStatus" id="iStatus">---</p>
+					</div>
+					<div class="elementInput">
+						<h3>Selenium</h3> <input type="text" id="selenium" placeholder="e.g. 24" onChange="LiveUpdate();" value=> <p class="elementStatus" id="seStatus">---</p>
+					</div>
+				</form>
+					<div class="section2">
+							<label class= "checkContainer">Iodine is variable
+								<input type="checkbox" name="IodineCheckbox" id="varICheckbox">
+								<span class="checkmark"></span>
+							</label>
+							<label class= "checkContainer">Display element levels
+								<input type="checkbox" name="StatusCheckbox" id="statusCheckbox" onclick="showLiveStatus()">
+								<span class="checkmark"></span>
+							</label>	
+					</div>
+					<div class="processButtons">
+						<button id="comm-button" value="Generate Comments" onclick="comment();"/>Generate Comments
+						<button id="clear-button" value="Clear" onclick="clearPage();"/>Clear
+					</div>
+			</div>
+			<!-- <div class="elementInput" id="google_translate_element"></div> -->
+			<h2>Comments</h2> 
+				<div class="section3">
+					<p contenteditable="true" id="milkComments" class="comments"></p>
+				</div>
+				<div class="section4">
+						<button class="copyButton" id="copy-button"/>Copy
+						<i style="padding-left: 10px;" class="far fa-copy"></i>
+					</div>
+				<!-- <div class= "image">
+					<img src="TJlogo.bmp"></img>
+					</div> -->
+			
+				</div>
+		</div>
+	</div>	
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+	<script src='TraceElement.js'></script>
+	<script src="TraceElementSorter.js"></script>
+	<script src='GroupedElements.js'></script>
+	<script src="SpecificElementComments.js"></script>
+	<script src="ElementComments.js"></script>
+	<script src='LiveElementStatus.js'></script>
+	<script src='main.js'></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
