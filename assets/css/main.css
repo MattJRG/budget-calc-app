@@ -58,7 +58,7 @@ p {
 	padding-bottom: 15px;
 	display: inline-block;
 	text-align: center;
-	width: 27%;
+	width: 22%;
 	min-width: 150px;
 	height: 50px;
 }
@@ -123,6 +123,7 @@ input[type=text]:focus {
 	text-align: center;
 	height: 30px;
 	margin-bottom: 20px;
+	padding-top: 20px;
 }
 
 input[type=button] {
@@ -152,48 +153,7 @@ input[type=button]:hover {
 
 }
 
-#guide-button {
-	min-width: 150px;
-    padding: 8px 10px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	margin-left: auto;
-	margin-right: auto;
-    border: none;
-    cursor: pointer;
-	font-size: 18px;
-	background: #43A047;
-	color: #fff;
-	display: block;
-}
-
-#guide-button:hover {
-	/* border-bottom: 2px solid black; */
-	cursor: pointer;
-	transform: scale(1.01); 
-}
-
-#copy-button {
-	min-width: 150px;
-    padding: 8px 10px;
-	/* margin: 10px 10px 10px 10px; */
-	margin-left: auto;
-	margin-right: auto;
-    border: none;
-    cursor: pointer;
-	font-size: 18px;
-	background: #43A047;
-	align: center;
-	color: #fff;
-}
-
-#copy-button:hover {
-	/* border-bottom: 2px solid black; */
-	cursor: pointer;
-	transform: scale(1.01); 
-}
-
-#comm-button {
+.button {
 	min-width: 190px;
     padding: 8px 10px;
 	/* margin: 10px 10px 10px 10px; */
@@ -207,30 +167,19 @@ input[type=button]:hover {
 	color: #fff;
 }
 
-#comm-button:hover {
+.button:hover {
 	/* border-bottom: 2px solid black; */
 	cursor: pointer;
 	transform: scale(1.01); 
 }
 
-#clear-button {
-	min-width: 190px;
-    padding: 8px 10px;
-	/* margin: 10px 10px 10px 10px; */
+.guide-button {
+	min-width: 150px;
+	display: block;
+}
+
+.rightButton {
 	margin-left: 50px;
-	margin-right: auto;
-    border: none;
-    cursor: pointer;
-	font-size: 18px;
-	background: #43A047;
-	align: center;
-	color: #fff;
-}
-
-#clear-button:hover {
-	/* border-bottom: 2px solid black; */
-	cursor: pointer;
-	transform: scale(1.01); 
 }
 
 #varICheckbox:hover {
@@ -251,7 +200,7 @@ input[type=button]:hover {
 	background-color: #F9F9F9;
 	/* border: 5px solid black; */
 	/* border-radius: 10px; */
-	min-width: 770px;
+	min-width: 850px;
 	max-width: 850px;
 	overflow: hidden;
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -290,10 +239,10 @@ img {
   }
   #byte_range { margin-top: 5px; }
 
-  #guideBox {
+  /* #guideBox {
 	display: none;
 	margin-top: 20px;
-}  
+}   */
 
   .guideBox {
 	/* margin-top: 20px; */

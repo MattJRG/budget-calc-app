@@ -1,4 +1,4 @@
-function TraceElement(level, name, lowBoundary, marginalBoundary, satisfactoryBoundary, highBoundary, veryHighBoundary, extremelyHighBoundary){
+function TraceElementMilk(level, name, lowBoundary, marginalBoundary, satisfactoryBoundary, highBoundary, veryHighBoundary, extremelyHighBoundary){
 	this.level = level;
 	this.name = name;
 	this.lowBoundary = lowBoundary;

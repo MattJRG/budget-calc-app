@@ -1,6 +1,6 @@
-function SpecificElementComments(){
+function SpecificElementCommentsMilk(){
 
-	this.elementComments = new ElementComments();
+	this.elementComments = new ElementCommentsMilk();
 
 	this.mainSatisfactory = function(satisfactoryElements, allElements, cuLevel, moLevel){
 		

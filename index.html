@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<title>Automatic Milk Reporter</title>
+	<title>Automatic Reporter</title>
 	<link href="css/main.css" rel="stylesheet" type="text/css" />﻿
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="shortcut icon" href="favicon.ico">
@@ -12,18 +12,22 @@
 		<div class="container">
 			<div class="navBar">
 				<div class="navElement">
-						<a class="active" href="https://milkautoreporter.herokuapp.com">Milk Mineral</a>
-						<a href="https://waterautoreporter.herokuapp.com">Water Mineral</a>
-						<a href="https://microwaterautoreporter.herokuapp.com">Water Micro</a>
+						<a id="milkNav" onclick="togglePage(milkNav, milkApp, waterNav, waterApp, microNav, microApp, homeApp);">Milk Mineral</a>
+						<a id="waterNav" onclick="togglePage(waterNav, waterApp, milkNav, milkApp, microNav, microApp, homeApp);">Water Mineral</a>
+						<a id="microNav" onclick="togglePage(microNav, microApp, milkNav, milkApp, waterNav, waterApp, homeApp);">Water Micro</a>
 				</div>
 			</div>
 			<div class="userarea">
-				<h1>Automatic Milk Reporter</h1>
+				<h1>Automatic Reporter</h1>
+				<div class="homeApp" id="home-app" style="display: block;">
+					<h3>Please select the type of sample you wish to generate comments for from the tabs above</h3>
+				</div>	
+				<div class="milkApp" id="milk-app" style="display: none;">
 				<h3>Please enter milk trace element levels (ppb)</h3>
 				<div class="section5">
-					<button class="copyButton" id="guide-button" onclick="toggleGuide();"/>Show Guide
+					<button class="button guideButton" onclick="toggleGuide(milkGuide);"/>Show Guide
 				</div>
-				<div class="guideBox" id="guideBox" style="display: none;">
+				<div class="guideBox" id="milkGuideBox" style="display: none;">
 						<h3><u>Guide</u></h3>
 							<div class="guideText">
 								<ul>
@@ -37,25 +41,26 @@
 				</div>
 				<form class="section1">
 					<div class="elementInput">
-						<h3>Phosphorus</h3> <input type="text" id="phosphorus" placeholder="e.g. 1150" onChange="LiveUpdate();" value=><p class="elementStatus" id="pStatus">---</p>
+						<h3>Phosphorus</h3> <input type="text" id="phosphorusMilk" placeholder="e.g. 1150" value=><p class="elementStatus" id="pStatus">---</p>
 					</div>
 					<div class="elementInput">
-						<h3>Manganese</h3> <input type="text" id="manganese" placeholder="e.g. 35" onChange="LiveUpdate();" value=> <p class="elementStatus" id="mnStatus">---</p>
+						<h3>Manganese</h3> <input type="text" id="manganeseMilk" placeholder="e.g. 35" value=> <p class="elementStatus" id="mnStatus">---</p>
 					</div>
 					<div class="elementInput">
-						<h3>Zinc</h3> <input type="text" id="zinc" placeholder="e.g. 3000" onChange="LiveUpdate();" value=> <p class="elementStatus" id="znStatus">---</p>
+						<h3>Zinc</h3> <input type="text" id="zincMilk" placeholder="e.g. 3000" value=> <p class="elementStatus" id="znStatus">---</p>
 					</div>
 					<div class="elementInput">
-						<h3>Copper</h3> <input type="text" id="copper" placeholder="e.g. 34" onChange="LiveUpdate();" value=> <p class="elementStatus" id="cuStatus">---</p>
+						<h3>Copper</h3> <input type="text" id="copperMilk" placeholder="e.g. 34" value=> <p class="elementStatus" id="cuStatus">---</p>
 					</div>
 					<div class="elementInput">
-						<h3>Molybdenum</h3> <input type="text" id="molybdenum" placeholder="e.g. 42" onChange="LiveUpdate();" value=> <p class="elementStatus" id="moStatus">---</p>
+						<h3>Molybdenum</h3> <input type="text" id="molybdenumMilk" placeholder="e.g. 42" value=> <p class="elementStatus" id="moStatus">---</p>
 					</div>
 					<div class="elementInput">
-						<h3>Iodine</h3> <input type="text" id="iodine" placeholder="e.g. 500" onChange="LiveUpdate();" value=> <p class="elementStatus" id="iStatus">---</p>
+						<h3>Iodine</h3> <input type="text" id="iodineMilk" placeholder="e.g. 500" value=> <p class="elementStatus" id="iStatus">---</p>
 					</div>
 					<div class="elementInput">
-						<h3>Selenium</h3> <input type="text" id="selenium" placeholder="e.g. 24" onChange="LiveUpdate();" value=> <p class="elementStatus" id="seStatus">---</p>
+						<h3>Selenium</h3> <input type="text" id="seleniumMilk" placeholder="e.g. 24" value=> <p class="elementStatus" id="seStatus">---</p>
+						<!-- onChange="LiveUpdate();" if wanting to implement live update system-->
 					</div>
 				</form>
 					<div class="section2">
@@ -63,40 +68,228 @@
 								<input type="checkbox" name="IodineCheckbox" id="varICheckbox">
 								<span class="checkmark"></span>
 							</label>
-							<label class= "checkContainer">Display element levels
+							<!-- <label class= "checkContainer">Display element levels
 								<input type="checkbox" name="StatusCheckbox" id="statusCheckbox" onclick="showLiveStatus()">
 								<span class="checkmark"></span>
-							</label>	
+							</label>	 -->
 					</div>
 					<div class="processButtons">
-						<button id="comm-button" value="Generate Comments" onclick="comment();"/>Generate Comments
-						<button id="clear-button" value="Clear" onclick="clearPage();"/>Clear
+						<button class="button" value="Generate Comments" onclick="comment('milk');"/>Generate Comments
+						<button class="button rightButton" value="Clear" onclick="clearPage('milk');"/>Clear
 					</div>
-			</div>
-			<!-- <div class="elementInput" id="google_translate_element"></div> -->
-			<h2>Comments</h2> 
+					<h2>Comments</h2> 
 				<div class="section3">
 					<p contenteditable="true" id="milkComments" class="comments"></p>
 				</div>
 				<div class="section4">
-						<button class="copyButton" id="copy-button"/>Copy
+						<button class="button" onclick="copyComments('milk')"/>Copy
 						<i style="padding-left: 10px;" class="far fa-copy"></i>
 					</div>
+				</div>
+
+				<div class="waterMinApp" id="water-app" style="display: none;">
+			<h3>Please enter water parameter levels</h3>
+				<div class="section5">
+					<button class="button guideButton" onclick="toggleGuide(waterGuide);"/>Show Guide
+				</div>
+				<div class="guideBox" id="waterGuideBox" style="display: none;">
+						<h3><u>Guide</u></h3>
+							<div class="guideText">
+								<ul>
+									<li>Leave Lead input empty if not analysed</li>
+									<li>Don't enter Total Hardness value, it is calculated automatically</li>
+									<li>Do not enter Alkalinity, Acidity or Nitrite levels they are not necessary</li>
+									<li>If the water is for poultry, please tick the poultry box below</li>
+									<li>Use the clear button to clear all data and comments</li>
+									<li>Use the copy button to copy the comments (Google Chrome Only)</li>
+								</ul>
+							</div>
+				</div>
+				<form class="section1">
+					<!-- <div class="elementInput">
+						<h3>Sample ID</h3> <input type="text" id="sampleId" placeholder="Not Required" onChange="LiveUpdate();" value=>
+						<p class="elementStatus" id="sampleId">---</p>
+					</div> -->
+					<div class="elementInput">
+						<h3>pH</h3> <input type="text" id="phWater" onChange="LiveUpdate('water');"  placeholder="e.g. 7.4" value=>
+						<p class="elementStatus" id="phStatus">---</p>
+					</div>
+					<div class="elementInput">
+							<h3>Conductivity</h3> <input type="text" id="conductivityWater" onChange="LiveUpdate('water');"  placeholder="e.g. 250" value=>
+							<p class="elementStatus" id="conStatus">---</p>
+						</div>
+					<div class="elementInput">
+							<h3>TDS</h3> <input type="text" id="tdsWater" onChange="LiveUpdate('water');"  placeholder="e.g. 115" value=>
+							<p class="elementStatus" id="tdsStatus">---</p>
+						</div>
+					<div class="elementInput">
+							<h3>Nitrate</h3> <input type="text" id="nitrateWater" onChange="LiveUpdate('water');"  placeholder="e.g. 3" value=>
+							<p class="elementStatus" id="No3Status">---</p>
+						</div>
+					<div class="elementInput">
+							<h3>Ammonia</h3> <input type="text" id="ammoniaWater" onChange="LiveUpdate('water');"  placeholder="e.g. 0.10" value=>
+							<p class="elementStatus" id="nh4Status">---</p>
+						</div>
+					<div class="elementInput">
+							<h3>Calcium</h3> <input type="text" id="calciumWater"  onChange="LiveUpdate('water');" placeholder="e.g. 25" value=>
+							<p class="elementStatus" id="caStatus">---</p>
+						</div>
+					<div class="elementInput">
+							<h3>Chloride</h3> <input type="text" id="chlorideWater" onChange="LiveUpdate('water');"  placeholder="e.g. 15" value=>
+							<p class="elementStatus" id="clStatus">---</p>
+						</div>
+					<div class="elementInput">
+							<h3>Magnesium</h3> <input type="text" id="magnesiumWater"  onChange="LiveUpdate('water');" placeholder="e.g. 8" value=>
+							<p class="elementStatus" id="mgStatus">---</p>
+						</div>
+					<div class="elementInput">
+							<h3>Phosphorus</h3> <input type="text" id="phosphorusWater" onChange="LiveUpdate('water');"  placeholder="e.g. 0.3" value=>
+							<p class="elementStatus" id="pStatus">---</p>
+						</div>
+					<div class="elementInput">
+							<h3>Potassium</h3> <input type="text" id="potassiumWater" onChange="LiveUpdate('water');"  placeholder="e.g. 2" value=>
+							<p class="elementStatus" id="kStatus">---</p>
+						</div>
+					<div class="elementInput">
+							<h3>Sodium</h3> <input type="text" id="sodiumWater" onChange="LiveUpdate('water');"  placeholder="e.g. 9" value=>
+							<p class="elementStatus" id="naStatus">---</p>
+						</div>
+					<div class="elementInput">
+							<h3>Sulphate-S</h3> <input type="text" id="sulphateWater" onChange="LiveUpdate('water');"  placeholder="e.g. 9" value=>
+							<p class="elementStatus" id="so4Status">---</p>
+						</div>
+					<div class="elementInput">
+							<h3>Aluminium</h3> <input type="text" id="aluminiumWater" onChange="LiveUpdate('water');"  placeholder="e.g. 15" value=>
+							<p class="elementStatus" id="alStatus">---</p>
+						</div>
+					<div class="elementInput">
+							<h3>Copper</h3> <input type="text" id="copperWater" onChange="LiveUpdate('water');"  placeholder="e.g. 10" value=>
+							<p class="elementStatus" id="cuStatus">---</p>
+						</div>
+					<div class="elementInput">
+							<h3>Iron</h3> <input type="text" id="ironWater" onChange="LiveUpdate('water');"  placeholder="e.g. 270" value=>
+							<p class="elementStatus" id="feStatus">---</p>
+						</div>
+					<div class="elementInput">
+						<h3>Lead</h3> <input type="text" id="leadWater" onChange="LiveUpdate('water');"  placeholder="e.g. 0" value=>
+						<p class="elementStatus" id="pbStatus">---</p>
+					</div>
+					<div class="elementInput">
+						<h3>Manganese</h3> <input type="text" id="manganeseWater" onChange="LiveUpdate('water');"  placeholder="e.g. 28" value=>
+						<p class="elementStatus" id="mnStatus">---</p>
+					</div>
+					<div class="elementInput">
+						<h3>Zinc</h3> <input type="text" id="zincWater" onChange="LiveUpdate('water');"  placeholder="e.g. 2100" value=>
+						<p class="elementStatus" id="znStatus">---</p>
+					</div>
+					<div class="elementInput">
+						<h3>Boron</h3> <input type="text" id="boronWater" onChange="LiveUpdate('water');"  placeholder="e.g. 10" value=>
+						<p class="elementStatus" id="BStatus">---</p>
+					</div>		
+					<div class="elementInput">
+						<h3>Total Hardness</h3> <input type="text" id="hardnessWater" onChange="LiveUpdate('water');" placeholder="e.g. 9" value=>
+						<p class="elementStatus" id="hardnessStatus">---</p>
+					</div>
+				</form>
+					<div class="section2">
+						<label class="checkContainer">is this water sample for poultry?
+								<input type="checkbox" name="PoultryCheckbox" id="poultryCheckbox">
+								<span class="checkmark"></span>
+						</label>	
+					</div>
+					<div class="processButtons">
+						<button class="button" value="Generate Comments" onclick="comment('water');"/>Generate Comments
+						<button class="button rightButton"  value="Clear" onclick="clearPage('water');"/>Clear
+					</div>
+					<h2>Comments</h2> 
+				<div class="section3">
+					<p contenteditable="true" id="waterComments" class="comments"></p>
+				</div>
+				<div class="section4">
+					<button class="button" onclick="copyComments('water')"/>Copy
+					<i style="padding-left: 10px;" class="far fa-copy"></i>
+				</div>
+				</div>
+
+				<div class="microWaterApp" id="micro-app" style="display: none;">
+			<h3>Please enter water parameter levels</h3>
+				<div class="section5">
+					<button class="button guideButton" onclick="toggleGuide(microGuide);"/>Show Guide
+				</div>
+				<div class="guideBox" id="microGuideBox" style="display: none;">
+					<h3><u>Guide</u></h3>
+						<div class="guideText">
+							<ul>
+								<li>Please enter 'not detected' or less than values (e.g. <5) as 0</li>
+								<li>If a parameter was not tested leave the input field blank</li>
+								<li>If the water is for human consumption tick the box below</li>
+								<li>Use the clear button to clear all data and comments</li>
+								<li>Use the copy button to copy the comments (Google Chrome Only)</li>
+							</ul>
+						</div>
+				</div>	
+				<form class="section1">
+					<div class="elementInput">
+						<h3>Salmonella</h3> <input type="text" id="salmonellaMicro" placeholder="e.g. 7.4" value=>
+					</div>
+					<div class="elementInput">
+							<h3>E-Coli</h3> <input type="text" id="ecoliMicro" placeholder="e.g. 250" value=>
+						</div>
+					<div class="elementInput">
+							<h3>Total Coliforms</h3> <input type="text" id="coliformsMicro" placeholder="e.g. 115" value=>
+						</div>
+					<div class="elementInput">
+							<h3>Campylobacter</h3> <input type="text" id="campylobacterMicro" placeholder="e.g. 3" value=>
+						</div>
+					<div class="elementInput">
+							<h3>Clostridium perfringens</h3> <input type="text" id="clostridiumMicro" placeholder="e.g. 0.10" value=>
+						</div>
+					<div class="elementInput">
+							<h3>Pseudomonas</h3> <input type="text" id="pseudomonasMicro" placeholder="e.g. 25" value=>
+						</div>
+				</form>
+					<div class="section2">
+							<label class="checkContainer">is this for human consumption?
+									<input type="checkbox" name="HumanCheckbox" id="humanCheckbox">
+									<span class="checkmark"></span>
+							</label>
+					</div>
+					<div class="processButtons">
+					<button class="button" value="Generate Comments" onclick="comment('micro');"/>Generate Comments
+					<button class="button rightButton" value="Clear" onclick="clearPage('micro');"/>Clear
+				</div>
+				<h2>Comments</h2> 
+				<div class="section3">
+					<p contenteditable="true" id="microComments" class="comments"></p>
+				</div>
+				<div class="section4">
+					<button class="button" onclick="copyComments('micro')"/>Copy
+					<i style="padding-left: 10px;" class="far fa-copy"></i>
+				</div>
+				</div>
+			</div>
 				<!-- <div class= "image">
 					<img src="TJlogo.bmp"></img>
 					</div> -->
-			
 				</div>
 		</div>
 	</div>	
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
-	<script src='TraceElement.js'></script>
-	<script src="TraceElementSorter.js"></script>
+	<script src="TraceElementSorterMilk.js"></script>
+	<script src="TraceElementSorterWater.js"></script>
+	<script src="TraceElementSorterMicro.js"></script>
 	<script src='GroupedElements.js'></script>
-	<script src="SpecificElementComments.js"></script>
-	<script src="ElementComments.js"></script>
+	<script src='TraceElementMilk.js'></script>
+	<script src='TraceElementWater.js'></script>
+	<script src='TraceElementMicro.js'></script>
+	<script src="SpecificElementCommentsMilk.js"></script>
+	<script src="SpecificElementCommentsWater.js"></script>
+	<script src="SpecificElementCommentsMicro.js"></script>
+	<script src="ElementCommentsMilk.js"></script>
+	<script src="ElementCommentsWater.js"></script>
+	<script src="ElementCommentsMicro.js"></script>
 	<script src='LiveElementStatus.js'></script>
 	<script src='main.js'></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

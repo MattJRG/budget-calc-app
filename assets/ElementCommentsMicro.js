@@ -1,37 +1,31 @@
-function ElementComments(){
-
-	this.areThereNoValues = function(allElements){
-		if (allElements.length !== 0)
-			return "Trace element status is ";
-		else {
-			return "Please enter trace element levels".fontcolor("red");
-		}
-	}
+function ElementCommentsMicro(){
 
 	this.printElementComment = function(level, elements, allElements){
 
 		if (elements.length === 0){
 			return " ";
 		} else {
-			return " " + level + " for " + this.printElements(elements, allElements.length);
+			return " " + level + " " + this.printElements(elements, allElements.length);
 		}
 	}
 
-	this.printAllElementComments = function(sortedElements, allElements, veryLowElements, lowElements, marginalElements){
+	this.printAllElementComments = function(sortedElements, allElements, raisedElements){
 		var comment = "";
 
 		sortedElements = this.filterEmptyArrays(sortedElements);
-
+		console.log(sortedElements);
 		for (var i=0; i<sortedElements.length; i++) {
-			comment += this.printElementComment(sortedElements[i].level, sortedElements[i].elements, allElements)
-			if (i === 0 && sortedElements.length > 1) {
-				comment += " but is "
+			comment += this.printElementComment(sortedElements[i].level, sortedElements[i].elements, allElements, raisedElements)
+			if (i === 0 && sortedElements.length > 1 && raisedElements.length >= 1) {
+				comment += " level but with the exception of the ";
 			} else if (i === sortedElements.length - 2 && sortedElements.length > 2) {
-				comment += " and "
+				comment += " and ";
+			} else if (i !== sortedElements.length - 1 && raisedElements.length <=2) {
+				comment += " and ";
 			} else if (i !== sortedElements.length - 1) {
-				comment += ", "
+				comment += ", ";
 			} else {
-				comment += "."
+				comment += " status.";
 			}
 		}
 		return comment 
@@ -73,7 +67,7 @@ function ElementComments(){
 	});
 }
 
-this.variableIodineComment = function(allElements){
+this.variableIronComment = function(allElements){
 		if (document.getElementById("varICheckbox").checked && allElements.length > 0) {
 			return " Iodine levels fluctuate widely on a seasonal basis, with summer levels being on average half those of peak winter values. This is due to a combination of a reduced Iodine dietary intake at grass and the antagonistic impact of goitregenic factors in pasture legumes and brassicas.";
 		}
