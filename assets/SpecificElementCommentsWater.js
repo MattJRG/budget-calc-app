@@ -328,7 +328,7 @@ function SpecificElementCommentsWater(){
 
 	this.ammoniaComment = function(ammoniaNitratePotassium, allElements, nh4Level) {
 		if (arrayContainsElement(ammoniaNitratePotassium, "Ammonia") === true || arrayContainsElement(ammoniaNitratePotassium, "Potassium") === true || arrayContainsElement(ammoniaNitratePotassium, "Nitrate") === true){
-			return " " + this.elementComments.printElements(ammoniaNitratePotassium, allElements.length) + " " + this.ammoniaLivestock(nh4Level) + " may be a marker for the presence of trace levels of organic manures. Consequently, it is advisable to have this supply checked for potentially pathogenic microbes, including E-Coli.";
+			return " " + this.elementComments.printElements(ammoniaNitratePotassium, allElements.length) + " " + this.ammoniaLivestock(nh4Level) + " may be a marker for the presence of trace levels of organic manures. Therefore, it is advisable to have this supply checked for potentially pathogenic microbes, including E-Coli.";
 		} else {
 			return "";
 		}
