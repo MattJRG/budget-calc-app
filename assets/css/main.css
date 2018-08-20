@@ -38,27 +38,25 @@ h2 {
 h3 {
 	/* color: black; */
 	font-family: Roboto;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 20px;
 	margin: 5px;
 	/*text-align: center;*/
 }
 
 p {
-	padding: 15px 15px;
-	font-size: 16px;
+	font-size: 12px;
 	font-family: "Roboto";
-	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-	min-height: 50px;
+	margin: 0px;
 }
 
 .elementInput {
 	margin: 5px 0px;
-	padding: 5px;
+	padding-top: 5px;
 	padding-bottom: 15px;
 	display: inline-block;
 	text-align: center;
-	width: 22%;
+	width: 24%;
 	min-width: 150px;
 	height: 50px;
 }
@@ -86,6 +84,11 @@ input[type=text]:focus {
 	/*border: 1px solid black;*/
 	margin: 10px;
 	outline: none;
+	padding: 15px 15px;
+	font-size: 16px;
+	font-family: "Roboto";
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+	min-height: 50px;
 }
 
 .section1 {
@@ -312,10 +315,10 @@ ul {
 	display: inline-block;
 	position: relative;
 	margin-bottom: 12px;
-	margin-left: auto;
-	margin-right: auto;
+	/* margin-left: auto;
+	margin-right: auto; */
 	cursor: pointer;
-	width: 250px;
+	width: 300px;
 	/* padding-right: 20px; */
 	font-size: 15px;
 	font-weight: bold;
@@ -324,6 +327,10 @@ ul {
 	-ms-user-select: none;
 	user-select: none;
 	padding-top: 5px;
+  }
+
+  .smallerContainer {
+	  width: 200px;
   }
   
   /* Hide the browser's default checkbox */
