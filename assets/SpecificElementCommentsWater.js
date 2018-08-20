@@ -264,9 +264,9 @@ function SpecificElementCommentsWater(){
 	}
 
 	this.sodiumComment = function(naLevel) {
-		if (naLevel > 200 && naLevel < 300) {
+		if (naLevel > 200 && naLevel < 300 && forPoultry.checked === false) {
 			return " In terms of dietary intake, the Sodium level is equivalent to increasing the typical dairy diet concentration by 0.10% DM, which represents about a 50% increase. Consequently, this contribution should be accounted for when formulating diets for Sodium (Salt).";
-		} else if (naLevel > 100 && naLevel <150) {
+		} else if (naLevel > 100 && naLevel <150 && forPoultry.checked === false) {
 			return " The Sodium intake from this water supply is equivalent to increasing the total dietary supply of a milking cow by about 0.15%DM. This contribution should be accounted for when formulating balancing mineral supplements or concentrates.";
 		} else {
 			return "";

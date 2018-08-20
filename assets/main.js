@@ -58,7 +58,7 @@ function comment(x) {
 
 		specificComments.removeMolybdenum(nonSatisfactoryElementsLessMolybdenum, satisfactoryElements, moLevel);
 
-		document.getElementById("milkComments").innerHTML = elementComments.areThereNoValues(allElements) + elementComments.printAllElementComments(sortedElements, allElements, veryLowElements, lowElements, marginalElements) + specificComments.belowSatisfactoryCopper(veryLowElements, lowElements, marginalElements, moLevel) + specificComments.mainSatisfactory(satisfactoryElements, allElements, cuLevel, moLevel) + specificComments.mainCopper(marginalElements, cuLevel, moLevel) + specificComments.mainCopper2(extremelyHighElements, veryHighElements, highElements, cuLevel, moLevel) + specificComments.mainMolybdenum(cuLevel, moLevel) + specificComments.mainIodine(allElementsMoreThanSatisfactory) + specificComments.mainManganese(allElementsMoreThanSatisfactory) + specificComments.mainSelenium(allElementsMoreThanSatisfactory) + elementComments.variableIodineComment (allElements) + specificComments.reviewElements(nonSatisfactoryElementsLessMolybdenum, allElements) + specificComments.reviewCuHighMo(satisfactoryElements, allElements, allElementsMoreThanSatisfactory, cuLevel, moLevel) + specificComments.mainCommentPhosphorus(allElements);
+		document.getElementById("milkComments").innerHTML = `${elementComments.areThereNoValues(allElements)} ${elementComments.printAllElementComments(sortedElements, allElements, veryLowElements, lowElements, marginalElements)} ${specificComments.belowSatisfactoryCopper(veryLowElements, lowElements, marginalElements, moLevel)} ${specificComments.mainSatisfactory(satisfactoryElements, allElements, cuLevel, moLevel)} ${specificComments.mainCopper(marginalElements, cuLevel, moLevel)} ${specificComments.mainCopper2(extremelyHighElements, veryHighElements, highElements, cuLevel, moLevel)} ${specificComments.mainMolybdenum(cuLevel, moLevel)} ${specificComments.mainIodine(allElementsMoreThanSatisfactory)} ${specificComments.mainManganese(allElementsMoreThanSatisfactory)} ${specificComments.mainSelenium(allElementsMoreThanSatisfactory)} ${elementComments.variableIodineComment (allElements)} ${specificComments.reviewElements(nonSatisfactoryElementsLessMolybdenum, allElements)} ${specificComments.reviewCuHighMo(satisfactoryElements, allElements, allElementsMoreThanSatisfactory, cuLevel, moLevel)} ${specificComments.mainCommentPhosphorus(allElements)}`;
 	
 	} else if (x === 'water') {
 		var phLevel = parseFloat(document.getElementById("phWater").value);
@@ -168,24 +168,24 @@ function comment(x) {
 		var specificComments = new SpecificElementCommentsWater();
 		var elementComments = new ElementCommentsWater();
 		
-		document.getElementById("waterComments").innerHTML = specificComments.phInitialComment(primeSatisfactoryElements, primeRaisedElements, primeHighElements, primeVeryHighElements, hardnessLevel) 
-		+ specificComments.hardnessComment(hardnessLevel, mgLevel, caLevel, primeSatisfactoryElements, primeHighElements, primeVeryHighElements) 
-		+ specificComments.acidPhComment(primeSatisfactoryElements) 
-		+ specificComments.areThereNoValues(allElements, nonSatisfactoryElements, allElementsMoreThanRaised, raisedElements, primeSatisfactoryElements) 
-		+ specificComments.sodiumChlorideComment(naLevel, clLevel, tdsLevel)
-		+ elementComments.printAllElementComments(sortedElements, allElements, raisedElements) 
-		+ specificComments.magnesiumChlorideComment(allElementsMoreThanRaised, mgLevel, clLevel) 
-		+ specificComments.seperateIronManganeseAluminium(allElementsMoreThanRaised, seperatedMetalElements) 
-		+ specificComments.seperateAmmoniaNitratePotassium(allElementsMoreThanSatisfactory, ammoniaNitratePotassium) 
-		+ specificComments.phosphorusComment(veryHighElements, highElements) 
-		+ specificComments.firstIronManganeseComment(seperatedMetalElements, allElements) 
-		+ specificComments.secondIronManganeseComment(allElementsMoreThanRaised, mnLevel, feLevel, satisfactoryElements)
-		+ specificComments.sulphateComment(so4Level) 
-		+ specificComments.sodiumSulphateComment(veryHighElements, raisedElements, highElements, allElementsRaisedAndHigh) 
-		+ specificComments.sodiumComment(naLevel) 
-		+ specificComments.ammoniaComment(ammoniaNitratePotassium, allElements, nh4Level) 
-		+ specificComments.summaryComment(extremelyHighElements, veryHighElements, allElements, allElementsMoreThanHigh, allElementsMoreThanRaised, mnLevel, feLevel, raisedElements, naLevel, clLevel, tdsLevel) 
-		+ specificComments.noLead(allElements, pbLevel); 
+		document.getElementById("waterComments").innerHTML = `${specificComments.phInitialComment(primeSatisfactoryElements, primeRaisedElements, primeHighElements, primeVeryHighElements, hardnessLevel)} 
+		${specificComments.hardnessComment(hardnessLevel, mgLevel, caLevel, primeSatisfactoryElements, primeHighElements, primeVeryHighElements)}
+		${specificComments.acidPhComment(primeSatisfactoryElements)}
+		${specificComments.areThereNoValues(allElements, nonSatisfactoryElements, allElementsMoreThanRaised, raisedElements, primeSatisfactoryElements)}
+		${specificComments.sodiumChlorideComment(naLevel, clLevel, tdsLevel)}
+		${elementComments.printAllElementComments(sortedElements, allElements, raisedElements)}
+		${specificComments.magnesiumChlorideComment(allElementsMoreThanRaised, mgLevel, clLevel)}
+		${specificComments.seperateIronManganeseAluminium(allElementsMoreThanRaised, seperatedMetalElements)}
+		${specificComments.seperateAmmoniaNitratePotassium(allElementsMoreThanSatisfactory, ammoniaNitratePotassium)}
+		${specificComments.phosphorusComment(veryHighElements, highElements)}
+		${specificComments.firstIronManganeseComment(seperatedMetalElements, allElements)}
+		${specificComments.secondIronManganeseComment(allElementsMoreThanRaised, mnLevel, feLevel, satisfactoryElements)}
+		${specificComments.sulphateComment(so4Level)}
+		${specificComments.sodiumSulphateComment(veryHighElements, raisedElements, highElements, allElementsRaisedAndHigh)} 
+		${specificComments.sodiumComment(naLevel)}
+		${specificComments.ammoniaComment(ammoniaNitratePotassium, allElements, nh4Level)}
+		${specificComments.summaryComment(extremelyHighElements, veryHighElements, allElements, allElementsMoreThanHigh, allElementsMoreThanRaised, mnLevel, feLevel, raisedElements, naLevel, clLevel, tdsLevel)}
+		${specificComments.noLead(allElements, pbLevel)}`; 
 	
 	} else if (x === 'micro') {
 		var salLevel = parseFloat(document.getElementById("salmonellaMicro").value);
@@ -237,8 +237,7 @@ function comment(x) {
 		console.log(extremelyHighElements);
 		console.log(satisfactoryElements);
 		
-		document.getElementById("microComments").innerHTML = specificComments.areThereNoValues(allElements) 
-		+ specificComments.mainComment(satisfactoryElements, raisedElements, highElements, veryHighElements, extremelyHighElements, allElements, colLevel, closLevel, ecolLevel, salLevel); 
+		document.getElementById("microComments").innerHTML = `${specificComments.areThereNoValues(allElements)} ${specificComments.mainComment(satisfactoryElements, raisedElements, highElements, veryHighElements, extremelyHighElements, allElements, colLevel, closLevel, ecolLevel, salLevel)}`; 
 	}
 };
 
