@@ -449,13 +449,64 @@ function clearPage(x){
 
 	} else if (x === "micro") {
 		document.getElementById("salmonellaMicro").value = "";
-		document.getElementById("microCommentsMicro").innerHTML = "";
+		document.getElementById("microComments").innerHTML = "";
 		document.getElementById("ecoliMicro").value = "";
 		document.getElementById("coliformsMicro").value = "";
 		document.getElementById("campylobacterMicro").value = "";
 		document.getElementById("clostridiumMicro").value = "";
 		document.getElementById("pseudomonasMicro").value = "";
 		document.getElementById("humanCheckboxMicro").checked = false;
+	}
+};
+
+function demo(x){
+	if (x === "milk") {
+		// document.getElementById("milkComments").innerHTML = "";
+		document.getElementById("phosphorusMilk").value = "1150";
+		document.getElementById("manganeseMilk").value = "21";
+		document.getElementById("zincMilk").value = "3455";
+		document.getElementById("copperMilk").value = "43";
+		document.getElementById("molybdenumMilk").value = "44";
+		document.getElementById("iodineMilk").value = "46";
+		document.getElementById("seleniumMilk").value = "11";
+		document.getElementById("varICheckbox").checked = false;
+		comment(x)
+
+	} else if (x === "water") {
+		// document.getElementById("waterComments").innerHTML = "";
+		document.getElementById("phWater").value = "7.2";
+		document.getElementById("conductivityWater").value = "1441";
+		document.getElementById("tdsWater").value = "835";
+		document.getElementById("nitrateWater").value = "0.1";
+		document.getElementById("ammoniaWater").value = "0.1";
+		document.getElementById("calciumWater").value = "19";
+		document.getElementById("chlorideWater").value = "357";
+		document.getElementById("magnesiumWater").value = "2";
+		document.getElementById("phosphorusWater").value = "0.1";
+		document.getElementById("potassiumWater").value = "1";
+		document.getElementById("sodiumWater").value = "328";
+		document.getElementById("sulphateWater").value = "16";
+		document.getElementById("aluminiumWater").value = "10";
+		document.getElementById("copperWater").value = "10";
+		document.getElementById("ironWater").value = "20";
+		document.getElementById("leadWater").value = "5";
+		document.getElementById("manganeseWater").value = "10";
+		document.getElementById("zincWater").value = "5";
+		document.getElementById("boronWater").value = "520";
+		document.getElementById("hardnessWater").value = (parseFloat(document.getElementById("calciumWater").value)*2.497 + parseFloat(document.getElementById("magnesiumWater").value)*4.116).toFixed(0);
+		document.getElementById("poultryCheckbox").checked = false;
+		comment(x)
+
+	} else if (x === "micro") {
+		// document.getElementById("microCommentsMicro").innerHTML = "";
+		document.getElementById("salmonellaMicro").value = "15";
+		document.getElementById("ecoliMicro").value = "10120";
+		document.getElementById("coliformsMicro").value = "15760";
+		document.getElementById("campylobacterMicro").value = "0";
+		document.getElementById("clostridiumMicro").value = "1152";
+		document.getElementById("pseudomonasMicro").value = "1";
+		document.getElementById("humanCheckbox").checked = false;
+		comment(x)
 	}
 };
 

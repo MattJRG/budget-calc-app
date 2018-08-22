@@ -23,14 +23,14 @@
 					<div class="section6">
 						<h3>Please select the type of sample you wish to generate comments for from the tabs above</h3>
 						<div class= "image">
-							<img src="TJlogo.bmp"></img>
+							<img src="TJlogo.bmp">
 							</div>
 					</div>
 				</div>	
 				<div class="milkApp" id="milk-app" style="display: none;">
 				<h3>Please enter milk trace element levels (ppb)</h3>
 				<div class="section5">
-					<button class="button guideButton" onclick="toggleGuide(milkGuide);"/>Show Guide
+					<button class="button guideButton" onclick="toggleGuide(milkGuide);">Show Guide
 				</div>
 				<div class="guideBox" id="milkGuideBox" style="display: none;">
 						<h3><u>Guide</u></h3>
@@ -42,6 +42,7 @@
 									<li>Use the clear button to clear all data and comments</li>
 									<li>Use the copy button to copy the comments (Google Chrome Only)</li>
 								</ul>
+								<button class="button demoButton" onclick="demo('milk');">Demo App
 							</div>
 				</div>
 				<form class="section1">
@@ -79,8 +80,8 @@
 							</label>	 -->
 					</div>
 					<div class="processButtons">
-						<button class="button" value="Generate Comments" onclick="comment('milk');"/>Generate Comments
-						<button class="button rightButton" value="Clear" onclick="clearPage('milk');"/>Clear
+						<button class="button" value="Generate Comments" onclick="comment('milk');">Generate Comments
+						<button class="button rightButton" value="Clear" onclick="clearPage('milk');">Clear
 					</div>
 					<h2>Comments</h2> 
 				<div class="section3">
@@ -95,7 +96,7 @@
 				<div class="waterMinApp" id="water-app" style="display: none;">
 			<h3>Please enter water parameter levels</h3>
 				<div class="section5">
-					<button class="button guideButton" onclick="toggleGuide(waterGuide);"/>Show Guide
+					<button class="button guideButton" onclick="toggleGuide(waterGuide);">Show Guide
 				</div>
 				<div class="guideBox" id="waterGuideBox" style="display: none;">
 						<h3><u>Guide</u></h3>
@@ -108,6 +109,7 @@
 									<li>Use the clear button to clear all data and comments</li>
 									<li>Use the copy button to copy the comments (Google Chrome Only)</li>
 								</ul>
+								<button class="button demoButton" onclick="demo('water');">Demo App
 							</div>
 				</div>
 				<form class="section1">
@@ -203,15 +205,15 @@
 						</label>	
 					</div>
 					<div class="processButtons">
-						<button class="button" value="Generate Comments" onclick="comment('water');"/>Generate Comments
-						<button class="button rightButton"  value="Clear" onclick="clearPage('water');"/>Clear
+						<button class="button" value="Generate Comments" onclick="comment('water');">Generate Comments
+						<button class="button rightButton"  value="Clear" onclick="clearPage('water');">Clear
 					</div>
 					<h2>Comments</h2> 
 				<div class="section3">
 					<p contenteditable="true" id="waterComments" class="comments"></p>
 				</div>
 				<div class="section4">
-					<button class="button" onclick="copyComments('water')"/>Copy
+					<button class="button" onclick="copyComments('water')">Copy
 					<i style="padding-left: 10px;" class="far fa-copy"></i>
 				</div>
 				</div>
@@ -219,18 +221,19 @@
 				<div class="microWaterApp" id="micro-app" style="display: none;">
 			<h3>Please enter water parameter levels</h3>
 				<div class="section5">
-					<button class="button guideButton" onclick="toggleGuide(microGuide);"/>Show Guide
+					<button class="button guideButton" onclick="toggleGuide(microGuide);">Show Guide
 				</div>
 				<div class="guideBox" id="microGuideBox" style="display: none;">
 					<h3><u>Guide</u></h3>
 						<div class="guideText">
 							<ul>
-								<li>Please enter 'not detected' or less than values (e.g. <5) as 0</li>
+								<li>Please enter 'not detected' or less than values (e.g. &lt5) as 0</li>
 								<li>If a parameter was not tested leave the input field blank</li>
 								<li>If the water is for human consumption tick the box below</li>
 								<li>Use the clear button to clear all data and comments</li>
 								<li>Use the copy button to copy the comments (Google Chrome Only)</li>
 							</ul>
+							<button class="button demoButton" onclick="demo('micro');">Demo App
 						</div>
 				</div>	
 				<form class="section1">
@@ -260,15 +263,15 @@
 							</label>
 					</div>
 					<div class="processButtons">
-					<button class="button" value="Generate Comments" onclick="comment('micro');"/>Generate Comments
-					<button class="button rightButton" value="Clear" onclick="clearPage('micro');"/>Clear
+					<button class="button" value="Generate Comments" onclick="comment('micro');">Generate Comments
+					<button class="button rightButton" value="Clear" onclick="clearPage('micro');">Clear
 				</div>
 				<h2>Comments</h2> 
 				<div class="section3">
 					<p contenteditable="true" id="microComments" class="comments"></p>
 				</div>
 				<div class="section4">
-					<button class="button" onclick="copyComments('micro')"/>Copy
+					<button class="button" onclick="copyComments('micro')">Copy
 					<i style="padding-left: 10px;" class="far fa-copy"></i>
 				</div>
 				</div>
