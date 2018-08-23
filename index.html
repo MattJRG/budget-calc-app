@@ -1,303 +1,124 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-	<title>Automatic Reporter</title>
-	<link href="css/main.css" rel="stylesheet" type="text/css" />﻿
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-</head>
-<body>
-	<div class="article">
-		<div class="container">
-			<div class="navBar">
-				<div class="navElement">
-						<a id="milkNav" onclick="togglePage(milkNav, milkApp, waterNav, waterApp, microNav, microApp, homeApp);">Milk Mineral</a>
-						<a id="waterNav" onclick="togglePage(waterNav, waterApp, milkNav, milkApp, microNav, microApp, homeApp);">Water Mineral</a>
-						<a id="microNav" onclick="togglePage(microNav, microApp, milkNav, milkApp, waterNav, waterApp, homeApp);">Water Micro</a>
-				</div>
-			</div>
-			<div class="userarea">
-				<h1>Automatic Reporter</h1>
-				<div class="homeApp" id="home-app" style="display: block;">
-					<div class="section6">
-						<h3>Please select the type of sample you wish to generate comments for from the tabs above</h3>
-						<div class= "image">
-							<img src="TJlogo.bmp">
-							</div>
-					</div>
-				</div>	
-				<div class="milkApp" id="milk-app" style="display: none;">
-				<h3>Please enter milk trace element levels (ppb)</h3>
-				<div class="section5">
-					<button class="button guideButton" onclick="toggleGuide(milkGuide);">Show Guide
-				</div>
-				<div class="guideBox" id="milkGuideBox" style="display: none;">
-						<h3><u>Guide</u></h3>
-							<div class="guideText">
-								<ul>
-									<li>If Phosphorus wasn't tested leave input blank</li>
-									<li>If previous Iodine results for the farmer have been variable tick box below</li>
-									<li>Show element status reveals the levels of each element e.g. high</li>
-									<li>Use the clear button to clear all data and comments</li>
-									<li>Use the copy button to copy the comments (Google Chrome Only)</li>
-								</ul>
-								<button class="button demoButton" onclick="demo('milk');">Demo App
-							</div>
-				</div>
-				<form class="section1">
-					<div class="elementInput">
-						<h3>Phosphorus</h3> <input type="text" id="phosphorusMilk" placeholder="e.g. 1150" value=><p class="elementStatus" id="pStatus">---</p>
-					</div>
-					<div class="elementInput">
-						<h3>Manganese</h3> <input type="text" id="manganeseMilk" placeholder="e.g. 35" value=> <p class="elementStatus" id="mnStatus">---</p>
-					</div>
-					<div class="elementInput">
-						<h3>Zinc</h3> <input type="text" id="zincMilk" placeholder="e.g. 3000" value=> <p class="elementStatus" id="znStatus">---</p>
-					</div>
-					<div class="elementInput">
-						<h3>Copper</h3> <input type="text" id="copperMilk" placeholder="e.g. 34" value=> <p class="elementStatus" id="cuStatus">---</p>
-					</div>
-					<div class="elementInput">
-						<h3>Molybdenum</h3> <input type="text" id="molybdenumMilk" placeholder="e.g. 42" value=> <p class="elementStatus" id="moStatus">---</p>
-					</div>
-					<div class="elementInput">
-						<h3>Iodine</h3> <input type="text" id="iodineMilk" placeholder="e.g. 500" value=> <p class="elementStatus" id="iStatus">---</p>
-					</div>
-					<div class="elementInput">
-						<h3>Selenium</h3> <input type="text" id="seleniumMilk" placeholder="e.g. 24" value=> <p class="elementStatus" id="seStatus">---</p>
-						<!-- onChange="LiveUpdate();" if wanting to implement live update system-->
-					</div>
-				</form>
-					<div class="section2">
-							<label class= "checkContainer smallerContainer">Iodine is variable
-								<input type="checkbox" name="IodineCheckbox" id="varICheckbox">
-								<span class="checkmark"></span>
-							</label>
-							<!-- <label class= "checkContainer">Display element levels
-								<input type="checkbox" name="StatusCheckbox" id="statusCheckbox" onclick="showLiveStatus()">
-								<span class="checkmark"></span>
-							</label>	 -->
-					</div>
-					<div class="processButtons">
-						<button class="button" value="Generate Comments" onclick="comment('milk');">Generate Comments
-						<button class="button rightButton" value="Clear" onclick="clearPage('milk');">Clear
-					</div>
-					<h2>Comments</h2> 
-				<div class="section3">
-					<p contenteditable="true" id="milkComments" class="comments"></p>
-				</div>
-				<div class="section4">
-						<button class="button" onclick="copyComments('milk')"/>Copy
-						<i style="padding-left: 10px;" class="far fa-copy"></i>
-					</div>
-				</div>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
+        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <title>BudgetCalcApp</title>
+    </head>
+    <body>
+        
+        <div class="top">
+            <div class="budget">
+                <div class="budget__title">
+                    Available Budget in <span class="budget__title--year">%Year%</span>:
+                </div>
+                
+                <div class="budget__value">+ 2,345.64</div>
+                
+                <div class="budget__income clearfix">
+                    <div class="budget__income--text">Income</div>
+                    <div class="right">
+                        <div class="budget__income--value">+ 4,300.00</div>
+                        <div class="budget__income--percentage">&nbsp;</div>
+                    </div>
+                </div>
+                
+                <div class="budget__expenses clearfix">
+                    <div class="budget__expenses--text">Expenses</div>
+                    <div class="right clearfix">
+                        <div class="budget__expenses--value">- 1,954.36</div>
+                        <div class="budget__expenses--percentage">45%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="bottom">
+            <div class="add">
+                <div class="add__container">
+                    <select class="add__type">
+                        <option value="inc" selected>+</option>
+                        <option value="exp">-</option>
+                    </select>
+                    <input type="text" class="add__description" placeholder="Add description">
+                    <input type="number" class="add__value" placeholder="Value">
+                    <button class="add__btn"><i class="ion-ios-checkmark-outline"></i></button>
+                </div>
+            </div>
+            
+            <div class="container clearfix">
+                <div class="income">
+                    <h2 class="icome__title">Income</h2>
+                    
+                    <div class="income__list">
+                       
+                        <!--
+                        <div class="item clearfix" id="income-0">
+                            <div class="item__description">Salary</div>
+                            <div class="right clearfix">
+                                <div class="item__value">+ 2,100.00</div>
+                                <div class="item__delete">
+                                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="item clearfix" id="income-1">
+                            <div class="item__description">Sold car</div>
+                            <div class="right clearfix">
+                                <div class="item__value">+ 1,500.00</div>
+                                <div class="item__delete">
+                                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        -->
+                        
+                    </div>
+                </div>
+                
+                
+                
+                <div class="expenses">
+                    <h2 class="expenses__title">Expenses</h2>
+                    
+                    <div class="expenses__list">
+                       
+                        <!--
+                        <div class="item clearfix" id="expense-0">
+                            <div class="item__description">Apartment rent</div>
+                            <div class="right clearfix">
+                                <div class="item__value">- 900.00</div>
+                                <div class="item__percentage">21%</div>
+                                <div class="item__delete">
+                                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                </div>
+                            </div>
+                        </div>
 
-				<div class="waterMinApp" id="water-app" style="display: none;">
-			<h3>Please enter water parameter levels</h3>
-				<div class="section5">
-					<button class="button guideButton" onclick="toggleGuide(waterGuide);">Show Guide
-				</div>
-				<div class="guideBox" id="waterGuideBox" style="display: none;">
-						<h3><u>Guide</u></h3>
-							<div class="guideText">
-								<ul>
-									<li>Leave Lead input empty if not analysed</li>
-									<li>Don't enter Total Hardness value, it is calculated automatically</li>
-									<li>Do not enter Alkalinity, Acidity or Nitrite levels they are not necessary</li>
-									<li>If the water is for poultry, please tick the poultry box below</li>
-									<li>Use the clear button to clear all data and comments</li>
-									<li>Use the copy button to copy the comments (Google Chrome Only)</li>
-								</ul>
-								<button class="button demoButton" onclick="demo('water');">Demo App
-							</div>
-				</div>
-				<form class="section1">
-					<!-- <div class="elementInput">
-						<h3>Sample ID</h3> <input type="text" id="sampleId" placeholder="Not Required" onChange="LiveUpdate();" value=>
-						<p class="elementStatus" id="sampleId">---</p>
-					</div> -->
-					<div class="elementInput">
-						<h3>pH</h3><p>&#x200b</p> <input type="text" id="phWater" onChange="LiveUpdate('water');"  placeholder="e.g. 7.4" value=>
-						<p class="elementStatus" id="phStatus">---</p>
-					</div>
-					<div class="elementInput">
-							<h3>Conductivity</h3><p>(µS/cm-1)</p> <input type="text" id="conductivityWater" onChange="LiveUpdate('water');"  placeholder="e.g. 250" value=>
-							<p class="elementStatus" id="conStatus">---</p>
-						</div>
-					<div class="elementInput">
-							<h3>TDS</h3><p>(PPM of CaCO³)</p> <input type="text" id="tdsWater" onChange="LiveUpdate('water');"  placeholder="e.g. 115" value=>
-							<p class="elementStatus" id="tdsStatus">---</p>
-						</div>
-					<div class="elementInput">
-							<h3>Nitrate</h3><p>(mg/l)</p> <input type="text" id="nitrateWater" onChange="LiveUpdate('water');"  placeholder="e.g. 3" value=>
-							<p class="elementStatus" id="No3Status">---</p>
-						</div>
-					<div class="elementInput">
-							<h3>Ammonia</h3><p>(mg/l)</p><input type="text" id="ammoniaWater" onChange="LiveUpdate('water');"  placeholder="e.g. 0.10" value=>
-							<p class="elementStatus" id="nh4Status">---</p>
-						</div>
-					<div class="elementInput">
-							<h3>Calcium</h3><p>(mg/l)</p> <input type="text" id="calciumWater"  onChange="LiveUpdate('water');" placeholder="e.g. 25" value=>
-							<p class="elementStatus" id="caStatus">---</p>
-						</div>
-					<div class="elementInput">
-							<h3>Chloride</h3><p>(mg/l)</p> <input type="text" id="chlorideWater" onChange="LiveUpdate('water');"  placeholder="e.g. 15" value=>
-							<p class="elementStatus" id="clStatus">---</p>
-						</div>
-					<div class="elementInput">
-							<h3>Magnesium</h3><p>(mg/l)</p> <input type="text" id="magnesiumWater"  onChange="LiveUpdate('water');" placeholder="e.g. 8" value=>
-							<p class="elementStatus" id="mgStatus">---</p>
-						</div>
-					<div class="elementInput">
-							<h3>Phosphorus</h3><p>(mg/l)</p> <input type="text" id="phosphorusWater" onChange="LiveUpdate('water');"  placeholder="e.g. 0.3" value=>
-							<p class="elementStatus" id="pStatus">---</p>
-						</div>
-					<div class="elementInput">
-							<h3>Potassium</h3><p>(mg/l)</p> <input type="text" id="potassiumWater" onChange="LiveUpdate('water');"  placeholder="e.g. 2" value=>
-							<p class="elementStatus" id="kStatus">---</p>
-						</div>
-					<div class="elementInput">
-							<h3>Sodium</h3><p>(mg/l)</p> <input type="text" id="sodiumWater" onChange="LiveUpdate('water');"  placeholder="e.g. 9" value=>
-							<p class="elementStatus" id="naStatus">---</p>
-						</div>
-					<div class="elementInput">
-							<h3>Sulphate-S</h3><p>(mg/l)</p> <input type="text" id="sulphateWater" onChange="LiveUpdate('water');"  placeholder="e.g. 9" value=>
-							<p class="elementStatus" id="so4Status">---</p>
-						</div>
-					<div class="elementInput">
-							<h3>Aluminium</h3><p>(µg/l)</p> <input type="text" id="aluminiumWater" onChange="LiveUpdate('water');"  placeholder="e.g. 15" value=>
-							<p class="elementStatus" id="alStatus">---</p>
-						</div>
-					<div class="elementInput">
-							<h3>Copper</h3><p>(µg/l)</p> <input type="text" id="copperWater" onChange="LiveUpdate('water');"  placeholder="e.g. 10" value=>
-							<p class="elementStatus" id="cuStatus">---</p>
-						</div>
-					<div class="elementInput">
-							<h3>Iron</h3><p>(µg/l)</p> <input type="text" id="ironWater" onChange="LiveUpdate('water');"  placeholder="e.g. 270" value=>
-							<p class="elementStatus" id="feStatus">---</p>
-						</div>
-					<div class="elementInput">
-						<h3>Lead</h3><p>(µg/l)</p> <input type="text" id="leadWater" onChange="LiveUpdate('water');"  placeholder="e.g. 0" value=>
-						<p class="elementStatus" id="pbStatus">---</p>
-					</div>
-					<div class="elementInput">
-						<h3>Manganese</h3><p>(µg/l)</p> <input type="text" id="manganeseWater" onChange="LiveUpdate('water');"  placeholder="e.g. 28" value=>
-						<p class="elementStatus" id="mnStatus">---</p>
-					</div>
-					<div class="elementInput">
-						<h3>Zinc</h3><p>(µg/l)</p> <input type="text" id="zincWater" onChange="LiveUpdate('water');"  placeholder="e.g. 2100" value=>
-						<p class="elementStatus" id="znStatus">---</p>
-					</div>
-					<div class="elementInput">
-						<h3>Boron</h3><p>(µg/l)</p> <input type="text" id="boronWater" onChange="LiveUpdate('water');"  placeholder="e.g. 10" value=>
-						<p class="elementStatus" id="BStatus">---</p>
-					</div>		
-					<div class="elementInput">
-						<h3>Total Hardness</h3><p>(mg/l CaCO³)</p> <input type="text" id="hardnessWater" onChange="LiveUpdate('water');" placeholder="e.g. 9" value=>
-						<p class="elementStatus" id="hardnessStatus">---</p>
-					</div>
-				</form>
-					<div class="section2">
-						<label class="checkContainer">is this water sample for poultry?
-								<input type="checkbox" name="PoultryCheckbox" id="poultryCheckbox">
-								<span class="checkmark"></span>
-						</label>	
-					</div>
-					<div class="processButtons">
-						<button class="button" value="Generate Comments" onclick="comment('water');">Generate Comments
-						<button class="button rightButton"  value="Clear" onclick="clearPage('water');">Clear
-					</div>
-					<h2>Comments</h2> 
-				<div class="section3">
-					<p contenteditable="true" id="waterComments" class="comments"></p>
-				</div>
-				<div class="section4">
-					<button class="button" onclick="copyComments('water')">Copy
-					<i style="padding-left: 10px;" class="far fa-copy"></i>
-				</div>
-				</div>
-
-				<div class="microWaterApp" id="micro-app" style="display: none;">
-			<h3>Please enter water parameter levels</h3>
-				<div class="section5">
-					<button class="button guideButton" onclick="toggleGuide(microGuide);">Show Guide
-				</div>
-				<div class="guideBox" id="microGuideBox" style="display: none;">
-					<h3><u>Guide</u></h3>
-						<div class="guideText">
-							<ul>
-								<li>Please enter 'not detected' or less than values (e.g. &lt5) as 0</li>
-								<li>If a parameter was not tested leave the input field blank</li>
-								<li>If the water is for human consumption tick the box below</li>
-								<li>Use the clear button to clear all data and comments</li>
-								<li>Use the copy button to copy the comments (Google Chrome Only)</li>
-							</ul>
-							<button class="button demoButton" onclick="demo('micro');">Demo App
-						</div>
-				</div>	
-				<form class="section1">
-					<div class="elementInput">
-						<h3>Salmonella</h3><p>(in 100ml)</p> <input type="text" id="salmonellaMicro" placeholder="e.g. 7.4" value=>
-					</div>
-					<div class="elementInput">
-							<h3>E-Coli</h3><p>(MPN/100ml)</p> <input type="text" id="ecoliMicro" placeholder="e.g. 250" value=>
-						</div>
-					<div class="elementInput">
-							<h3>Total Coliforms</h3><p>(MPN/100ml)</p> <input type="text" id="coliformsMicro" placeholder="e.g. 115" value=>
-						</div>
-					<div class="elementInput">
-							<h3>Campylobacter</h3><p>(CFU/100ml)</p> <input type="text" id="campylobacterMicro" placeholder="e.g. 3" value=>
-						</div>
-					<div class="elementInput">
-							<h3>Clostridium perfringens</h3><p>(CFU/100ml)</p> <input type="text" id="clostridiumMicro" placeholder="e.g. 0.10" value=>
-						</div>
-					<div class="elementInput">
-							<h3>Pseudomonas</h3><p>(CFU/100ml)</p> <input type="text" id="pseudomonasMicro" placeholder="e.g. 25" value=>
-						</div>
-				</form>
-					<div class="section2">
-							<label class="checkContainer">is this for human consumption?
-									<input type="checkbox" name="HumanCheckbox" id="humanCheckbox">
-									<span class="checkmark"></span>
-							</label>
-					</div>
-					<div class="processButtons">
-					<button class="button" value="Generate Comments" onclick="comment('micro');">Generate Comments
-					<button class="button rightButton" value="Clear" onclick="clearPage('micro');">Clear
-				</div>
-				<h2>Comments</h2> 
-				<div class="section3">
-					<p contenteditable="true" id="microComments" class="comments"></p>
-				</div>
-				<div class="section4">
-					<button class="button" onclick="copyComments('micro')">Copy
-					<i style="padding-left: 10px;" class="far fa-copy"></i>
-				</div>
-				</div>
-			</div>
-				</div>
-		</div>
-	</div>	
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
-	<script src="TraceElementSorterMilk.js"></script>
-	<script src="TraceElementSorterWater.js"></script>
-	<script src="TraceElementSorterMicro.js"></script>
-	<script src='GroupedElements.js'></script>
-	<script src='TraceElementMilk.js'></script>
-	<script src='TraceElementWater.js'></script>
-	<script src='TraceElementMicro.js'></script>
-	<script src="SpecificElementCommentsMilk.js"></script>
-	<script src="SpecificElementCommentsWater.js"></script>
-	<script src="SpecificElementCommentsMicro.js"></script>
-	<script src="ElementCommentsMilk.js"></script>
-	<script src="ElementCommentsWater.js"></script>
-	<script src="ElementCommentsMicro.js"></script>
-	<script src='LiveElementStatus.js'></script>
-	<script src='main.js'></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</body>
+                        <div class="item clearfix" id="expense-1">
+                            <div class="item__description">Grocery shopping</div>
+                            <div class="right clearfix">
+                                <div class="item__value">- 435.28</div>
+                                <div class="item__percentage">10%</div>
+                                <div class="item__delete">
+                                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        -->
+                        
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        <script src="app.js"></script>
+    </body>
 </html>
